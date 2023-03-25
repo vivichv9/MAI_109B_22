@@ -1,14 +1,6 @@
 #!/usr/bin/env python
 #
 #===- run-clang-tidy.py - Parallel clang-tidy runner ---------*- python -*--===#
-#
-#                     The LLVM Compiler Infrastructure
-#
-# This file is distributed under the University of Illinois Open Source
-# License. See LICENSE.TXT for details.
-#
-#===------------------------------------------------------------------------===#
-# FIXME: Integrate with clang-tidy-diff.py
 
 """
 Parallel clang-tidy runner
