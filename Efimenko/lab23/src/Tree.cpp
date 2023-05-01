@@ -45,8 +45,6 @@ void Tree<T>::inorder(Node<T>* temp) {
         vec->pushBack(temp->getData());
     }
 
-    std::cout << temp->getData() << '\n';
-
     inorder(temp->getRightNode());
 }
 
