@@ -6,27 +6,20 @@
 template <typename T>
 Tree<T>::Tree(const T& data) {
     root = new Node<T>(data);
-    this->root = root;
 }
 
 template <typename T>
-Tree<T>::Tree() {
-    root = new Node<T>(NULL);
-    vec = new Vector<int>();
-}
-
-template <typename T>
-Node<T>* Tree<T>::insert(const T& data, Node<T>* temp) {
-    if(temp == nullptr) {
-        temp = new Node<int>(data);
-        temp->setLeftNode(nullptr);
-        temp->setRightNode(nullptr);
+Node<T>* Tree<T>::insert(const T& data, Node<T>* node) {
+    if(node == nullptr) {
+        node = new Node<int>(data);
+        node->leftNode = nullptr;
+        node->rightNode = nullptr;
     }
-    else if(data < temp->getData())
-        temp->setLeftNode(insert(data, temp->getLeftNode()));
-    else if(data > temp->getData())
-        temp->setRightNode(insert(data, temp->getRightNode()));
-    return temp;
+    else if(data < node->data)
+        node->leftNode = insert(data, node->leftNode);
+    else if(data > node->data)
+        node->rightNode = insert(data, node->rightNode);
+    return node;
 }
 
 template <typename T>
@@ -35,34 +28,43 @@ void Tree<T>::insert(const T& data) {
 }
 
 template <typename T>
-void Tree<T>::inorder(Node<T>* temp) {
-    if (temp == nullptr) {
+void Tree<T>::bypass(Node<T>* node) {
+    if (node == nullptr) {
         return;
     }
-    inorder(temp->getLeftNode());
+    bypass(node->leftNode);
 
-    if (temp->getLeftNode() != nullptr and temp->getRightNode() != nullptr) {
-        vec->pushBack(temp->getData());
+    if (node->leftNode != nullptr and node->rightNode != nullptr) {
+        vec->push_back(node->data);
     }
 
+<<<<<<< Updated upstream
     inorder(temp->getRightNode());
+=======
+    bypass(node->rightNode);
+>>>>>>> Stashed changes
 }
 
 template <typename T>
 void Tree<T>::task() {
-    inorder(root);
-    std::cout << vec->getSize() << '\n';
+    bypass(root);
+    std::cout << "\nthe number of vertices of a binary tree having exactly two subtrees: " << vec->get_size() << '\n';
 }
 
 template <typename T>
 void Tree<T>::clearTree(Node<T>* node) {
-    if (root == nullptr) {
+    if (node == nullptr) {
         return;
     }
     
-    clearTree(node->getLeftNode());
-    clearTree(node->getRightNode());
+    clearTree(node->leftNode);
+    clearTree(node->rightNode);
     delete node;
+}
+
+template <typename T>
+void Tree<T>::bypass() {
+    bypass(root);
 }
 
 template <typename T>

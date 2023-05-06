@@ -1,10 +1,10 @@
 #include <iostream>
-#include "/Users/kirille/Desktop/labs/lab_23/include/Tree.hpp"
-#include "/Users/kirille/Desktop/labs/lab_23/include/vector.hpp"
+#include "../include/Tree.hpp"
+#include "../include/vector.hpp"
 
 int main() {
     Tree<int> bt;
-    
+
     bt.insert(50);
     bt.insert(30);
     bt.insert(40);

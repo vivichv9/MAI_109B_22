@@ -1,4 +1,4 @@
-CXX       := clang++
+CXX       := g++
 CXX_FLAGS := -std=c++17 -Wall -fsanitize=address
 
 BIN := bin
@@ -16,7 +16,7 @@ run: clean build
 	@echo "Executing..."
 	$(BIN)/$(EXECUTABLE)
 
-$(BIN)/$(EXECUTABLE): main.cpp | $(BIN)
+$(BIN)/$(EXECUTABLE): $(TESTS)/main.cpp | $(BIN)
 	@echo "Building..."
 	$(CXX) $(CXX_FLAGS) -I $(INCLUDE) -L $(LIB) $^ -o $@ $(LIBRARIES)
 

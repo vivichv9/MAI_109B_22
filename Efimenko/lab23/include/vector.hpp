@@ -10,27 +10,34 @@ class Vector {
         size_t size = 0;
         T* array = nullptr;
 
+        void swap(Vector&);
+
     public:
         Vector();   
-        explicit Vector(size_t capacity);
+        Vector(size_t);
+        Vector(std::initializer_list<T>);
+        Vector(const Vector&);
+        Vector& operator=(Vector);
         ~Vector();
-        size_t getSize();
-        size_t getCapacity();
 
-        bool empty();
+        size_t get_size() const;
+        size_t get_capacity() const;
 
-        void resize(size_t n, const T& value = T());
-        void pop(size_t index);
-        void pushBack(const T& data);
-        void push(size_t index, const T& data);
+        bool empty() const;
+        void resize(size_t, const T& = T());
+        void push_back(const T&);
         void reserve(size_t n);
-        void popBack();
+        void pop_back();
         void clear();
-        void shrinkToFit();
+        void shrink_to_fit();
 
-        T at(size_t index);
-        T* front();
-        T* back();
+        T& operator[](size_t);
+        T& front();
+        T& back();
+        const T& operator[](size_t) const;
+        const T& back() const;
+        const T& front() const;
+
 };
 
 #include "../src/vector.cpp"

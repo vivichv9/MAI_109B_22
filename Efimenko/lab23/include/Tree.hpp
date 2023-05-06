@@ -4,22 +4,23 @@
 #include "Node.hpp"
 #include "vector.hpp"
 
-
 template <typename T>
 class Tree {
     private:
         Node<T>* root = nullptr;
-        Node<T>* insert(const T&, Node<T>*);
-        void inorder(Node<T>*);
-        void clearTree(Node<T>*);
-        Vector<int>* vec;
+        Vector<int>* vec = new Vector<int>();
 
-    public:
-        Tree();
+        Node<T>* insert(const T&, Node<T>*);
+        void bypass(Node<T>*);
+        void clearTree(Node<T>*);
+
+    public: 
+        Tree() = default;;
         Tree(const T&);
         ~Tree();
+
         void insert(const T&);
-        void inorder();
+        void bypass();
         void task();
 };
 
