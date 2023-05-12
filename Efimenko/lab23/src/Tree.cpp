@@ -37,12 +37,8 @@ void Tree<T>::bypass(Node<T>* node) {
     if (node->leftNode != nullptr and node->rightNode != nullptr) {
         vec->push_back(node->data);
     }
-
-<<<<<<< Updated upstream
-    inorder(temp->getRightNode());
-=======
+    
     bypass(node->rightNode);
->>>>>>> Stashed changes
 }
 
 template <typename T>

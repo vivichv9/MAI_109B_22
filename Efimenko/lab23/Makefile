@@ -1,7 +1,7 @@
 CXX       := g++
 CXX_FLAGS := -std=c++17 -Wall -fsanitize=address
 
-BIN := bin
+BIN     := bin
 SRC     := src
 INCLUDE := include
 LIB     := lib
@@ -18,6 +18,10 @@ run: clean build
 
 $(BIN)/$(EXECUTABLE): $(TESTS)/main.cpp | $(BIN)
 	@echo "Building..."
+	$(CXX) $(CXX_FLAGS) -I $(INCLUDE) -L $(LIB) $^ -o $@ $(LIBRARIES)
+
+$(BIN)/$(RUN_TEST): $(wildcard $(TESTS)/*.cpp) $(wildcard $(TESTS)/*.hpp) |$(BIN)
+	@echo "Building tests..."
 	$(CXX) $(CXX_FLAGS) -I $(INCLUDE) -L $(LIB) $^ -o $@ $(LIBRARIES)
 
 $(BIN):
