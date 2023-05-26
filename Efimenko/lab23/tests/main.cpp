@@ -1,6 +1,5 @@
 #include <iostream>
 #include "../include/Tree.hpp"
-#include "../include/vector.hpp"
 
 int main() {
     Tree<int> bt;

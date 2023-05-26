@@ -1,7 +1,6 @@
 #include <iostream>
 #include "../include/Tree.hpp"
 #include "../include/Node.hpp"
-#include "../include/vector.hpp"
 
 template <typename T>
 Tree<T>::Tree(const T& data) {
@@ -35,7 +34,7 @@ void Tree<T>::bypass(Node<T>* node) {
     bypass(node->leftNode);
 
     if (node->leftNode != nullptr and node->rightNode != nullptr) {
-        vec->push_back(node->data);
+        counter++;
     }
     
     bypass(node->rightNode);
@@ -44,7 +43,7 @@ void Tree<T>::bypass(Node<T>* node) {
 template <typename T>
 void Tree<T>::task() {
     bypass(root);
-    std::cout << "\nthe number of vertices of a binary tree having exactly two subtrees: " << vec->get_size() << '\n';
+    std::cout << "\nthe number of vertices of a binary tree having exactly two subtrees: " << counter << '\n';
 }
 
 template <typename T>
@@ -66,5 +65,4 @@ void Tree<T>::bypass() {
 template <typename T>
 Tree<T>::~Tree() {
     clearTree(root);
-    delete vec;
 }

@@ -2,13 +2,12 @@
 #define INCLUDE_TREE_HPP
 
 #include "Node.hpp"
-#include "vector.hpp"
 
 template <typename T>
 class Tree {
     private:
         Node<T>* root = nullptr;
-        Vector<int>* vec = new Vector<int>();
+        int counter = 0;
 
         Node<T>* insert(const T&, Node<T>*);
         void bypass(Node<T>*);
