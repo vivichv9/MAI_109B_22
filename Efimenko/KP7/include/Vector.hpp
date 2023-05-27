@@ -32,6 +32,9 @@ public:
     void clear();
     void shrink_to_fit();
 
+    template <typename... Args>
+    void emplace_back(const Args& ...args);
+
     T& operator[](size_t);
     T& at(size_t);
     T& front();

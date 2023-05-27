@@ -1,4 +1,6 @@
 #include "../include/Vector.hpp"
+#include <memory>
+#include <climits>
 
 template <typename T>
 Vector<T>::Vector() {
@@ -150,6 +152,17 @@ void Vector<T>::push_back(const T& data) {
         reserve(2 * size);
     }
     new (array + size) T(data);
+    ++size;
+}
+
+template <typename T>
+template <typename... Args>
+void Vector<T>::emplace_back(const Args& ...args) {
+    if (capacity == size) {
+        reserve(2 * capacity);
+    }
+
+    new (array + size) T(args...);
     ++size;
 }
 
