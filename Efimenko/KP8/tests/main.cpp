@@ -1,7 +1,10 @@
 #include <iostream>
+#include "benchmark.cpp"
 #include "../include/List.hpp"
 
 int main() {
+    benchmark();
+
     List<int> list;
     int left_border = 0;
     int right_border = 0;
