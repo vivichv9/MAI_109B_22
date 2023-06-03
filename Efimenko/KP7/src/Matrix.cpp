@@ -11,7 +11,7 @@ Matrix::Matrix(size_t lines, size_t columns): matrix_lines(lines), matrix_column
     line_matrix.push_back(0);
 }
 
-Vector<int> Matrix::read_vector_string() {
+Vector<int> Matrix::read_vector_from_string() {
     Vector<int> v;
     size_t size = 0;
     int value = 0;

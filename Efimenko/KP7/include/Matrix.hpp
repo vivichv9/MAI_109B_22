@@ -16,7 +16,7 @@ public:
     friend std::istream& operator>>(std::istream& is, Matrix& matrix);
 
     void multiplication(const Vector<int>&);
-    Vector<int> read_vector_string();
+    Vector<int> read_vector_from_string();
 };
 
 #include "../src/Matrix.cpp"

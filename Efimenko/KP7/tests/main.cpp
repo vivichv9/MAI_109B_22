@@ -9,6 +9,6 @@ int main() {
     Matrix matrix;
 
     std::cin >> matrix;
-    matrix.multiplication(matrix.read_vector_string());
+    matrix.multiplication(matrix.read_vector_from_string());
     return 0;
 }
