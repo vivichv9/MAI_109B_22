@@ -25,7 +25,7 @@ public:
     size_t get_size() const;
     void insert(Iterator& it, const T& value);
     void erase(Iterator& it);
-    void erase(Iterator& first_it, Iterator& last_it);
+    void erase(Iterator& start, Iterator& end);
     void clear();
     void push_front(const T& value);
     void pop_front();
