@@ -38,7 +38,7 @@ public:
     void pop_front();
     void insert(const T& value, Iterator& it);
     void erase(Iterator& iter);
-    void erase(Iterator& first_iterator, Iterator& second_iterator);
+    void erase(Iterator& start, Iterator& end);
 
     template <typename... Args>
     void emplace_back(const Args&... args);

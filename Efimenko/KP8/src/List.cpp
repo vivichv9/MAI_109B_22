@@ -152,25 +152,25 @@ void List<T, Allocator>::erase(Iterator& iter) {
 }
 
 template <typename T, typename Allocator>
-void List<T, Allocator>::erase(Iterator& first_iter, Iterator& second_iter) {
+void List<T, Allocator>::erase(Iterator& start, Iterator& end) {
     Iterator it = this->begin();
 
-    if (it != first_iter) {
-        while (it.current_node_ptr->next != first_iter.current_node_ptr) {
+    if (it != start) {
+        while (it.current_node_ptr->next != start.current_node_ptr) {
             ++it;
         }
-        it.current_node_ptr->next = second_iter.current_node_ptr;
+        it.current_node_ptr->next = end.current_node_ptr;
 
     } else {
-        head_ptr = second_iter.current_node_ptr;
+        head_ptr = end.current_node_ptr;
     }
 
-    while (first_iter != second_iter) {
+    while (start != end) {
         ++it;
-        AllocTraits::destroy(alloc, first_iter.current_node_ptr);
-        AllocTraits::deallocate(alloc, first_iter.current_node_ptr, 1);
+        AllocTraits::destroy(alloc, start.current_node_ptr);
+        AllocTraits::deallocate(alloc, start.current_node_ptr, 1);
         --size;
-        first_iter = it;
+        start = it;
     }
 }
 
