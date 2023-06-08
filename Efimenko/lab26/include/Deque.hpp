@@ -33,6 +33,8 @@ public:
     void pop_back();
     void swap_nodes(Iterator& it_1, Iterator& it_2);
     void set_val(Iterator& it, T& value);
+    void task_procedure(Iterator& it, bool& flag, Deque<T, Allocator>& deque);
+    void insert_sort();
 
     template <typename... Args>
     void emplace_back(const Args&... args);

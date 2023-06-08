@@ -365,3 +365,33 @@ typename Deque<T, Allocator>::Iterator& Deque<T, Allocator>::Iterator::operator-
     for (size_t i = 0; i < n; ++i, --it) {}
     return it;
 }
+
+template <typename T, typename Allocator>
+void Deque<T, Allocator>::task_procedure(typename Deque<T, Allocator>::Iterator& it, bool& flag, Deque<T, Allocator>& deque) {
+    auto temp_iter = deque.begin();
+    while (temp_iter != it) {
+        if (*it < *temp_iter) {
+            deque.insert(temp_iter, *it);
+            auto it_copy = it;
+            flag = true;
+            ++it;
+            deque.erase(it_copy);
+            break;
+        }
+        ++temp_iter;
+    }
+}
+
+template <typename T, typename Allocator>
+void Deque<T, Allocator>::insert_sort() {
+    auto it = begin();
+    bool flag = false;
+    ++it;
+    for (; it != end();) {
+        flag = false;
+        task_procedure(it, flag, *this);
+        if (!flag) {
+            ++it;
+        }
+    }
+}
